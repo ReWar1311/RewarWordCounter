@@ -1,0 +1,26 @@
+<h2>Enter the para and select the language to continue</h2>
+
+<form action="/submit" method="POST">
+  <label for="fname">Type Something or Paste here:</label><br>
+  <input type="text" id="para" name="para" value="Type your text here"><br>
+  <label for="lang">Language:</label><br>
+  <select name="lang" id="lang">
+    <option value="-" name="auto">Auto-detect</option>
+    <option value="en" name="en">English</option>
+    <option value="ch" name="ch">chinese</option>
+    <option value="jap" name="jap">Japanese</option>
+    <option value="kor" name="kor">Korean</option>
+    <option value="th" name="th">Thai</option>
+    <input type="submit" value="Count">
+  </select>
+  <br>
+</form> 
+<% if(locals.words){ %><br>
+  <h2>Words:<%= words %></h2><br>
+  <h2>Characters:<%= characterCount.characters %></h2><br>
+  <h2>Punctuations: <%= characterCount.punctuation %></h2><br>
+  <h2>WhiteSpaces: <%= characterCount.whiteSpace %></h2><br>
+  <% } %>
+
+
+
