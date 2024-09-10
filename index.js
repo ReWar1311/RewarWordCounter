@@ -8,6 +8,8 @@ import { fileURLToPath } from 'url';
 // Get the directory name of the current module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+var dirname= __dirname+"/public/main.css";
+
 
 dotenv.config();
 const app= express();
@@ -26,14 +28,14 @@ app.post("/submit",(req,res)=>{
     const words = countWords( data, language);
     const characterCount = countCharacters(data);
     res.render("index",{
-        words, characterCount
+        words, characterCount,dirname
     });
     console.log(characterCount)
 
 });
 
 app.get("/",(req,res)=>{
-    res.render("index",{});
+    res.render("index",{dirname});
 })
 
 app.listen(port,()=>{
